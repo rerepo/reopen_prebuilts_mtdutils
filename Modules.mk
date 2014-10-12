@@ -1,7 +1,11 @@
 LOCAL_PATH := $(call my-dir)
 
 # NOTE: use for diff host arch
+ifeq ($(HOST_IS_64_BIT),true)
+mtdutils_prefix := $(HOST_OS)-$(HOST_ARCH_64)
+else
 mtdutils_prefix := $(HOST_OS)-$(HOST_ARCH)
+endif
 
 ###################### mkfs.jffs2 ######################
 include $(CLEAR_VARS)
